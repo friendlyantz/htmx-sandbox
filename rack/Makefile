@@ -9,7 +9,7 @@ RED     = \033[0;31m
 GREEN   = \033[0;32m
 YELLOW  = \033[0;33m
 NC      = \033[0m
-
+PORT    = 9292
 # versions
 APP_REVISION    = $(shell git rev-parse HEAD)
 RUBY_VERSION    = $(shell script/get-tool-version ruby)
@@ -27,19 +27,19 @@ run:
 
 .PHONY: get_request
 get_request:
-	curl http://localhost:9292/
+	curl http://localhost:${PORT}/
 
 .PHONY: post_request
 post_request:
-	curl -X POST -d 'LADIDA' http://localhost:9292/
+	curl -X POST -d 'LADIDA' http://localhost:${PORT}/
 
 .PHONY: post_json_request
 post_json_request:
-	curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' http://localhost:9292/
+	curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' http://localhost:${PORT}/
 
 .PHONY: open_web
 open_web:
-	open http://127.0.0.1:9292/
+	open http://127.0.0.1:${PORT}/
 
 .PHONY: usage
 usage:
