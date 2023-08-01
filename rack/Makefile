@@ -37,6 +37,10 @@ post_request:
 post_json_request:
 	curl -X POST -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' http://localhost:9292/
 
+.PHONY: open_web
+open_web:
+	open http://127.0.0.1:9292/
+
 .PHONY: usage
 usage:
 	@echo
@@ -49,4 +53,5 @@ usage:
 	@echo "${YELLOW}make get_request${NC}              curl /GET request"
 	@echo "${YELLOW}make post_request${NC}             curl /POST request with LADIDA text"
 	@echo "${YELLOW}make post_json_request${NC}        curl /POST request with JSON payload"
+	@echo "${YELLOW}make open_web${NC}                 open in browser and try it there"
 	@echo
