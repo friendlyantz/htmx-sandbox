@@ -1,0 +1,43 @@
+<% if @clear_form %>
+  <input class="nes-input" id="task-form" hx-swap-oob="true" name="task" type="text" placeholder="new task">
+<% end %>
+
+<ul class="nes-list is-disc">
+
+<% if @error %>
+  <p class="nes-text is-error"> <%=  @error %> </p>
+<% end %>
+
+<% @tasks.each_with_index do |task, index| %>
+
+<% if task.done? %>
+
+  <li>
+    <p class="nes-text is-disabled"> <%= task.description %>
+     <i 
+       hx-delete=<%= "tasks/#{index}"%>
+       hx-target=".nes-list"
+       hx-swap="outerHTML"
+       class="nes-icon close is-small"
+      >
+      </i>
+    </p>
+      <input type="hidden" name="_method" value="delete" data-delete=<%= "#{index}" %>>
+  </li>
+  <% else %>
+
+  <li>
+    <p class="nes-text"> <%= task.description %>
+      <span class="nes-text is-primary"
+        hx-post=<%= "tasks/#{index}"%>
+        hx-target=".nes-list"
+        hx-swap="outerHTML"
+        hx-include=<%="[name=_method][data-mark='#{index}']"%>> done
+      </span>
+      <input type="hidden" name="_method" value="patch" data-mark=<%="#{index}" %>>
+    </p>
+  </li>
+  <% end %>
+  <% end %>
+</ul>
+
