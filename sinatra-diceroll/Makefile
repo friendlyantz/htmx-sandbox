@@ -43,4 +43,5 @@ usage:
 	@echo "${YELLOW}make install${NC}                  install dependencies"
 	@echo "${YELLOW}make run${NC}                      run app"
 	@echo "${YELLOW}make open_web${NC}                 open in browser and try it there"
+	@echo "${YELLOW}make get_request${NC}              curl /GET request to root"
 	@echo
