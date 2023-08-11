@@ -10,27 +10,28 @@
   </head>
   <body>
     <main>
-      <section class="player player--0 player--active">
-        <h2 class="name" id="name--0">Player 1</h2>
-        <p class="score" id="score--0">
-          <%= @p1.score %>
-          <output name="result" id="result">res</output>
-        </p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--0">
-            <%= @p1.score %>
-          </p>
-        </div>
-      </section>
-      <section class="player player--1">
-        <h2 class="name" id="name--1">Player 2</h2>
+
+      <section class="player player--1 player--active">
+        <h2 class="name" id="name--1">Player 1</h2>
         <p class="score" id="score--1">
-          <%= @p2.score %>
+         x
         </p>
         <div class="current">
           <p class="current-label">Current</p>
           <p class="current-score" id="current--1">
+            <%= @p1.score %>
+          </p>
+        </div>
+      </section>
+
+      <section class="player player--2">
+        <h2 class="name" id="name--2">Player 2</h2>
+        <p class="score" id="score--2">
+          <%= @p2.score %>
+        </p>
+        <div class="current">
+          <p class="current-label">Current</p>
+          <p class="current-score" id="current--2">
             <%= @p2.score %>
           </p>
         </div>
@@ -38,11 +39,12 @@
 
       <img id="dice-img" src="dice-<%= @dice %>.png" alt="Playing dice" class="dice" />
       <button id="new" class="btn btn--new">🔄 New game</button>
-      <div>
-        kfj
-      </div>
-      <%# <button hx-post="/roll"  hx-target="#new" hx-swap="innerHTML" class="btn btn--roll">🎲 Roll dice</button> %>
-      <button hx-post="/roll" hx-include="[name='result']" hx-target="#result" class="btn btn--roll">🎲 Roll dice</button>
+      <button hx-post="/roll"
+              hx-target="#dice-img"
+              hx-swap="outerHTML"
+              class="btn btn--roll">
+        🎲 Roll dice
+      </button>
       <button class="btn btn--hold">📥 Hold</button>
     </main>
   </body>

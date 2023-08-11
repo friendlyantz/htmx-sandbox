@@ -1,0 +1,15 @@
+<p class="score" 
+   id="score--<%= @active_player.id %>"
+   hx-swap-oob="true"
+   >
+  <%= @rolled_so_far %> 
+</p>
+
+<p class="current-score"
+   id="current--<%= @active_player.id %>"
+   hx-swap-oob="true"
+   >
+  <%= @p1.score %>
+</p>
+
+<img id="dice-img" src="dice-<%= @dice.to_s %>.png" alt="Playing dice" class="dice" />
