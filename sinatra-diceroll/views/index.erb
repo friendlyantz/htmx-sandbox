@@ -37,7 +37,11 @@
         </div>
       </section>
 
-      <button id="new" class="btn btn--new">🔄 New game</button>
+      <button onclick="window.location.href='/new';"
+              id="new"
+              class="btn btn--new">
+        🔄 New game
+      </button>
 
       <img id="dice-img" src="dice-<%= @dice %>.png" alt="Playing dice" class="dice" />
 

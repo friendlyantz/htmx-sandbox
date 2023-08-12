@@ -14,6 +14,11 @@ end
 
 set :port, 4568
 
+get '/new' do
+  @game.reset_game
+  redirect '/'   
+end
+
 post '/roll' do
   @dice = rand(1..6)
   if @dice == 1
@@ -30,10 +35,6 @@ end
 
 post '/hold' do
   @game.active_player.score += @game.rolled_so_far
-
-  @banked_score = @game.active_player.score
-  @banking_player = @game.active_player
-
   @game.switch_players
   @game.reset_rolled_so_far
 
@@ -57,6 +58,13 @@ class Game
 
   def reset_rolled_so_far
     @rolled_so_far = 0
+  end
+
+  def reset_game
+    @player_one.score = 0
+    @player_two.score = 0
+    @active_player = [@player_one, @player_two].sample
+    reset_rolled_so_far
   end
 
   def switch_players
