@@ -14,7 +14,7 @@
       <section class="player player--1 player--active">
         <h2 class="name" id="name--1">Player 1</h2>
         <p class="score" id="score--1">
-         x
+          <%= @p1.score %>
         </p>
         <div class="current">
           <p class="current-label">Current</p>
@@ -37,15 +37,22 @@
         </div>
       </section>
 
-      <img id="dice-img" src="dice-<%= @dice %>.png" alt="Playing dice" class="dice" />
       <button id="new" class="btn btn--new">🔄 New game</button>
+
+      <img id="dice-img" src="dice-<%= @dice %>.png" alt="Playing dice" class="dice" />
+
       <button hx-post="/roll"
               hx-target="#dice-img"
               hx-swap="outerHTML"
               class="btn btn--roll">
         🎲 Roll dice
       </button>
-      <button class="btn btn--hold">📥 Hold</button>
+
+      <button hx-post="/hold"
+              class="btn btn--hold">
+        📥 Hold <%= @game.active_player.id.to_s %>
+      </button>
+
     </main>
   </body>
 </html>
