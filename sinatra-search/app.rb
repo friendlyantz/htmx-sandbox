@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'pry'
 require 'yaml'
@@ -14,12 +16,13 @@ class Sinatra::Application
         }
       end.sort_by { _1[:name] }
 
-    super
+      super
+    end
   end
 end
 
 def find_by(name)
-  @users.select{ |u| u[:name] =~ /#{name}/i }
+  @users.select { |u| u[:name] =~ /#{name}/i }
 end
 
 set :port, 4569
