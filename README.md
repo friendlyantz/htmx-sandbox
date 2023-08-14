@@ -38,6 +38,7 @@ rails new \                                                                     
   --skip-action-mailer \
   --skip-action-mailbox \
   --skip-test \
+  --skip-jbuilder \ 
 rails-skipjs-progress-bar
 ```
 
