@@ -1,24 +1,7 @@
-# README
+https://blog.stackfindover.com/tailwind-progress-bars/ - Tailwind progress bar that worked
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Rails has built-in security feature that prevents HTMX /POST calls, so I had to disable verify_authenticity_token 
+```ruby
+# DEVELOPMENT PURPOSES ONLY
+skip_before_action :verify_authenticity_token 
+```

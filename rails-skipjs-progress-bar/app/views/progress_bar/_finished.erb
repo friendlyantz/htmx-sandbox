@@ -1,0 +1,22 @@
+<div 
+  hx-target="this" 
+  hx-swap="outerHTML"
+  class="mt-5" 
+  >
+
+  <p>Complete! Press <strong>Restart Job</strong> to start the progress bar again.</p>
+
+  <div class="progress">
+    <div id="pb" class="progress-bar" style="width:100%">
+    </div>
+  </div>
+
+  <button 
+         hx-post="/progress_bar/start" 
+         classes="add show:600ms"
+         id="restart-btn" 
+         class="mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium" 
+         >
+    Restart Job
+  </button>
+</div>

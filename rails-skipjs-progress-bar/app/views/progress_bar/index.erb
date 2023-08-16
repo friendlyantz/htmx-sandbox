@@ -1,0 +1,37 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <h1>htmx Progress Bar</h1>
+
+    <p>Click the Start Job button to start the progress bar. It will run for 10 cycles, incrementing by 10 % each cycle.</p>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <div class="mt-5" 
+         hx-target="this" 
+         hx-swap="outerHTML">
+
+      <button 
+         hx-post="/progress_bar/start"
+         type="button" 
+         class="mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium" 
+         >
+         Start Job
+      </button>
+    </div>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <div
+        hx-get="/posts"
+        hx-trigger="load"
+        >
+        Posts placeholder for autoloading HTMX div
+    </div>
+
+  </div>
+</div>

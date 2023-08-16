@@ -44,4 +44,6 @@ rails-skipjs-progress-bar
 
 # Resources
 
+https://hypermedia.systems/introduction/ - HTMX book
 https://medium.com/@johnpitchko/build-an-animated-progress-bar-without-javascript-using-htmx-and-rails-b9d5c1fe03e1
+
