@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to @post, notice: "Post was successfully created."
+      render @post, status: :created, layout: false
     else
       render :new, status: :unprocessable_entity
     end

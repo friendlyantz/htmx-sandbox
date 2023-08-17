@@ -18,9 +18,9 @@
 
   <div class="inline">
     <button
-        hx-post: post_path(post),
-        hx-swap="outerHTML",
-        hx-target="#new-post-form",
+        hx-post="posts/#{post.id}"
+        hx-swap="beforebegin"
+        hx-target="#new-post-form"
         class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
         >
         [HTMX SUBMIT]
