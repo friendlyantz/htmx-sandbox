@@ -11,4 +11,12 @@
   <div id="posts" class="min-w-full">
     <%= render @posts %>
   </div>
+
+  <div
+      hx-get="/posts/new"
+      hx-trigger="load"
+      >
+      New Post Form placeholder for autoloading HTMX div
+  </div>
+
 </div>

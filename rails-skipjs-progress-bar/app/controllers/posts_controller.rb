@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :verify_authenticity_token  
   before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /posts
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    render :new, layout: false
   end
 
   # GET /posts/1/edit
@@ -42,7 +44,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: "Post was successfully destroyed.", status: :see_other
+    render plain: "Post was successfully destroyed.", status: :see_other
   end
 
   private

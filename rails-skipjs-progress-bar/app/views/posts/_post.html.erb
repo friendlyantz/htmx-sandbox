@@ -8,5 +8,18 @@
     <%= link_to "Show this post", post, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this post', edit_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
+
   <% end %>
+
+  <div class="inline-block ml-2">
+    <button 
+       class="mt-2 rounded-lg py-3 px-5 bg-orange-100 font-medium"
+       hx-target="#<%= dom_id post %>"
+       hx-swap="innerHTML"
+       hx-delete=<%= "posts/#{post.id}" %>
+     > 
+     HTMX Delete - this wont work from /post/id url
+    </button>
+  </div>
+
 </div>
