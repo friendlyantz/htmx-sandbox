@@ -16,11 +16,19 @@
     <%= form.text_field :content, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <%#= form.submit %>
   <div class="inline">
     <button
-        hx-post="posts/#{post.id}"
+
+      <% if action_name.eql?("edit") %>
+        hx-patch="posts/<%= post.id %>"
+        hx-target="#edit-post-form"
+      <% else %>
+        hx-post="posts/<%= post.id %>"
         hx-swap="beforebegin"
         hx-target="#new-post-form"
+
+      <% end %>
         class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
         >
         [HTMX SUBMIT]

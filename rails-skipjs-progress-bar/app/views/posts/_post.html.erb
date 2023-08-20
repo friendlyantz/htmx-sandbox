@@ -4,9 +4,26 @@
   <%= post.content %>
   </p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this post", post, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <% unless action_name.eql?("show") %>
+    <%= link_to "Show (redirect)", post, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <button 
+       class="mt-2 rounded-lg py-3 px-5 bg-green-100 font-medium"
+       hx-target="#<%= dom_id post %>"
+       hx-swap="innerHTML"
+       hx-get=<%= "posts/#{post.id}" %>
+     > 
+     Show (HTMX)
+    </button>
     <%= link_to 'Edit this post', edit_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+
+    <button 
+       class="mt-2 rounded-lg py-3 px-5 bg-green-100 font-medium"
+       hx-target="#<%= dom_id post %>"
+       hx-swap="innerHTML"
+       hx-get=<%= "posts/#{post.id}/edit" %>
+     > 
+     Edit (HTMX)
+    </button>
   <% end %>
 
   <div class="inline-block ml-2">
